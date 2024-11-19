@@ -1,17 +1,14 @@
 SUMMARY = "Building and installing bootgen"
 DESCRIPTION = "Building and installing bootgen, a Xilinx tool that lets you stitch binary files together and generate device boot images"
-
-LICENSE = "MIT"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=c979df673927004a489691fc457facff"
 
 S = "${WORKDIR}/git"
 
 DEPENDS += "openssl"
 RDEPENDS:${PN} += "openssl"
 
-
-
-SRC_URI = "${REPO};${BRANCHARG}"
-SRC_URI = "git://github.com/Xilinx/bootgen.git;protocol=https;tag=${PV}
+SRC_URI = "git://github.com/Xilinx/bootgen.git;protocol=https;tag=${PV}"
 EXTRA_OEMAKE += 'CROSS_COMPILER="${CXX}" -C ${S}'
 CXXFLAGS:append = " -std=c++0x"
 
